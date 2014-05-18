@@ -1,0 +1,128 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_place_setting"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.imherolddev.tipcalc.MainActivity$PlaceholderFragment" >
+
+    <TextView
+        android:id="@+id/tv_signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/tv_signature"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_clear"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="23dp"
+        android:onClick="calcBill"
+        android:text="@string/btn_calc" />
+
+    <EditText
+        android:id="@+id/et_tipAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_tip"
+        android:layout_alignBottom="@+id/tv_tip"
+        android:layout_alignLeft="@+id/et_billAmt"
+        android:background="@color/tv_bg"
+        android:ems="10"
+        android:hint="@string/et_percent_hint"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_billAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_bill"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/tv_bill"
+        android:background="@color/tv_bg"
+        android:ems="10"
+        android:hint="@string/et_default"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_signature"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/tv_preTipAmt"
+        android:textSize="@dimen/tv_size" />
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_bill"
+        android:layout_below="@+id/tv_bill"
+        android:layout_marginTop="25dp"
+        android:text="@string/tv_tipPercent"
+        android:textSize="@dimen/tv_size" />
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_signature"
+        android:layout_alignLeft="@+id/btn_calculate"
+        android:layout_alignRight="@+id/btn_calculate"
+        android:onClick="clearVals"
+        android:text="@string/btn_clear" />
+
+    <TextView
+        android:id="@+id/tv_tipTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/tv_tipAmt"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/tv_size" />
+
+    <TextView
+        android:id="@+id/tv_tipTotalMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tv_tipTotal"
+        android:layout_below="@+id/tv_tipTotal"
+        android:layout_marginTop="21dp"
+        android:background="@color/tv_bg"
+        android:text="@string/tv_defaultAmt"
+        android:textSize="@dimen/tv_size" />
+
+    <TextView
+        android:id="@+id/tv_billTotalMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_tipTotal"
+        android:layout_alignRight="@+id/tv_billTotal"
+        android:layout_marginBottom="21dp"
+        android:background="@color/tv_bg"
+        android:text="@string/tv_defaultAmt"
+        android:textSize="@dimen/tv_size" />
+
+    <TextView
+        android:id="@+id/tv_billTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_billTotalMoney"
+        android:layout_alignRight="@+id/tv_tipTotal"
+        android:layout_marginBottom="18dp"
+        android:text="@string/tv_totalBill"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/tv_size" />
+
+</RelativeLayout>
