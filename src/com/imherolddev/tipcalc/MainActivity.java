@@ -1,5 +1,6 @@
 package com.imherolddev.tipcalc;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
 	private EditText etTip;
 	private TextView billTotal;
 	private TextView tipTotal;
+	private CheckBox chkRound;
 
 	BillCalculator calculator = new BillCalculator();
 
@@ -52,30 +55,59 @@ public class MainActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void calcBill(View v) {
+	public View onCreatePanelView(int featureId) {
 
 		etBill = (EditText) findViewById(R.id.et_billAmt);
 		etTip = (EditText) findViewById(R.id.et_tipAmt);
 		billTotal = (TextView) findViewById(R.id.tv_billTotalMoney);
 		tipTotal = (TextView) findViewById(R.id.tv_tipTotalMoney);
+		chkRound = (CheckBox) findViewById(R.id.chk_round);
+
+		return null;
+
+	}
+
+	public void calcBill(View v) {
 
 		if (etBill.getText().toString().equals("")
 				| etBill.getText().toString().equals("0")) {
 
-			Toast.makeText(this, getString(R.string.tst_billInvalid),
-					Toast.LENGTH_LONG).show();
+			this.makeToast(this, getString(R.string.tst_billInvalid), Toast.LENGTH_LONG);
 
 		} else if (etTip.getText().toString().equals("")
 				| etTip.getText().toString().equals("0")) {
 
-			Toast.makeText(this, getString(R.string.tst_tipInvalid),
-					Toast.LENGTH_LONG).show();
+			this.makeToast(this, getString(R.string.tst_tipInvalid), Toast.LENGTH_LONG);
 
 		} else {
+			
+			if(Integer.parseInt(etTip.getText().toString()) < 100) {
+				
+				if(this.chkRound.isChecked()) {
+					
+					calculator.calcBill(etBill.getText().toString(),
+							etTip.getText().toString());
+					
+					billTotal.setText(calculator.roundUp());
+					tipTotal.setText(calculator.getTipTotal());
+					
+				} else {
+				
+				calculator.calcBill(etBill.getText().toString(),
+						etTip.getText().toString());
+				
+				billTotal.setText(calculator.getBillTotal());
+				tipTotal.setText(calculator.getTipTotal());
+				
+				}
+				
+			} else {
 
-			billTotal.setText(calculator.calcBill(etBill.getText().toString(),
-					etTip.getText().toString()));
-			tipTotal.setText(calculator.getTipTotal());
+			tipTotal.setText("");
+			
+			this.makeToast(this, getString(R.string.tst_lessHundred), Toast.LENGTH_LONG);
+			
+			}
 
 		}
 
@@ -88,6 +120,12 @@ public class MainActivity extends ActionBarActivity {
 		billTotal.setText(getString(R.string.tv_defaultAmt));
 		tipTotal.setText(getString(R.string.tv_defaultAmt));
 
+	}
+	
+	public void makeToast(Context c, String msg, int length) {
+		
+		Toast.makeText(c, msg, length).show();;
+		
 	}
 
 	/**
