@@ -2,16 +2,14 @@
 <resources>
 
     <string name="app_name" translatable="false">TipCalc</string>
-    <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="tv_tipAmt" translatable="false">Tip Amount:</string>
     <string name="tv_totalBill" translatable="false">Total Bill:</string>
     <string name="tv_defaultAmt" translatable="false">$0.00</string>
     <string name="btn_calc" translatable="false">Calculate</string>
     <string name="btn_clear" translatable="false">Clear</string>
-    <string name="tv_preTipAmt" translatable="false">Bill pre-tip</string>
-    <string name="tv_tipPercent" translatable="false">Tip Percent</string>
-    <color name="tv_bg">#d3d3d3</color>
+    <string name="tv_preTipAmt" translatable="false">Bill (pre-tip):</string>
+    <string name="tv_tipPercent" translatable="false">Tip Percent:</string>
     <string name="tv_signature" translatable="false">by: Jason Hall - imherolddev</string>
     <string name="et_default" translatable="false">0.00</string>
     <string name="et_percent_hint" translatable="false">0%</string>
@@ -19,5 +17,6 @@
     <string name="tst_tipInvalid" translatable="false">Please enter a tip of 1-100%</string>
     <string name="tst_lessHundred" translatable="false">Please enter a tip less than 100%</string>
     <string name="cbx_round" translatable="false">Round up my total</string>
+    <color name="et_bg">#80A0A0A0</color>
 
 </resources>

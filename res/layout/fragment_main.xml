@@ -111,8 +111,8 @@
         android:id="@+id/et_tipAmt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_billAmt"
         android:layout_below="@+id/tv_tip"
+        android:layout_toRightOf="@+id/tv_bill"
         android:ems="10"
         android:hint="@string/et_percent_hint"
         android:inputType="number"
@@ -122,8 +122,10 @@
         android:id="@+id/chk_round"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_clear"
-        android:layout_alignRight="@+id/tv_billTotalMoney"
+        android:layout_alignBaseline="@+id/btn_calculate"
+        android:layout_alignBottom="@+id/btn_calculate"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/btn_calculate"
         android:text="@string/cbx_round"
         android:textSize="@dimen/tv_size" />
 
